@@ -27,13 +27,13 @@
     </style>
 </head>
 <body>
-    <h1>Benvenuto nella WebApp Telegram</h1>
+    <h1>WebApp Telegram</h1>
     <p id="username">Caricamento...</p>
-    <button onclick="sendMessage()">Invia un Messaggio al Bot</button>
+    <button id="sendButton">Invia un Messaggio al Bot</button>
 
     <script>
         let tg = window.Telegram.WebApp;
-        tg.expand(); // Espande la WebApp
+        tg.expand(); // Espande la WebApp a tutta la finestra
 
         document.addEventListener("DOMContentLoaded", function () {
             if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
@@ -44,9 +44,10 @@
             }
         });
 
-        function sendMessage() {
-            tg.sendData("Ciao dal browser!"); // Invia un messaggio al bot
-        }
+        document.getElementById("sendButton").addEventListener("click", function () {
+            tg.sendData("Messaggio inviato dalla WebApp!"); // Invia un dato al bot
+            alert("Messaggio inviato al bot!"); // Per conferma
+        });
     </script>
 </body>
 </html>
