@@ -1,6 +1,156 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Survivor Mini App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #004080;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      background-color: #004080;
+    }
+    nav button {
+      flex: 1;
+      padding: 1em;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1em;
+    }
+    .section {
+      display: none;
+      padding: 1em;
+    }
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Survivor Mini App</h1>
+  </header>
+
+  <div id="profilo" class="section active">
+    <h2>Profilo Utente</h2>
+    <p>ID: <span id="uid"></span></p>
+    <p>Username: <span id="username"></span></p>
+  </div>
+
+  <div id="tornei" class="section">
+    <h2>Tornei</h2>
+    <button onclick="creaTorneo()">Crea Torneo</button>
+    <ul id="listaTornei"></ul>
+  </div>
+
+  <div id="gioca" class="section">
+    <h2>Gioca</h2>
+    <p>Seleziona una squadra per la giornata:</p>
+    <select id="squadra">
+      <option>Inter</option>
+      <option>Milan</option>
+      <option>Juventus</option>
+      <option>Roma</option>
+    </select>
+    <button onclick="salvaScelta()">Conferma Scelta</button>
+  </div>
+
+  <div id="classifica" class="section">
+    <h2>Classifica</h2>
+    <ul id="listaClassifica">
+      <li>Caricamento...</li>
+    </ul>
+  </div>
+
+  <nav>
+    <button onclick="mostraSezione('profilo')">🏠 Profilo</button>
+    <button onclick="mostraSezione('tornei')">🛒 Tornei</button>
+    <button onclick="mostraSezione('gioca')">🎮 Gioca</button>
+    <button onclick="mostraSezione('classifica')">🏆 Classifica</button>
+  </nav>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const uid = params.get("uid") || "non definito";
+    document.getElementById("uid").textContent = uid;
+
+    function mostraSezione(id) {
+      document.querySelectorAll(".section").forEach(el => el.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+    }
+
+    function creaTorneo() {
+      alert("Funzionalità 'Crea Torneo' in sviluppo...");
+    }
+
+    function salvaScelta() {
+      const squadra = document.getElementById("squadra").value;
+      alert(`Hai scelto: ${squadra}`);
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="it">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>WebApp Telegram</title>
@@ -138,7 +288,7 @@
     </script>
 
 </body>
-</html>
+</html> -->
 
 
 
